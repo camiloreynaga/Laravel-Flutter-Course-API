@@ -27,10 +27,10 @@ class AuthController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        $defaultCategories = Category::whereNull('user_id')->get();
-        foreach ($defaultCategories as $category) {
-            $user->categories()->create($category->toArray());
-        }
+        // $defaultCategories = Category::whereNull('user_id')->get();
+        // foreach ($defaultCategories as $category) {
+        //     $user->categories()->create($category->toArray());
+        // }
 
         return $user->createToken($request->device_name)->plainTextToken;
     }

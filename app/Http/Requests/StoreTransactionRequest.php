@@ -30,6 +30,7 @@ class StoreTransactionRequest extends FormRequest
                 Rule::exists('categories', 'id')->where('user_id', auth()->id())
             ],
             'amount' => 'required',
+            'amount2' => 'required',
             'description' => 'required',
             'transaction_date' => 'required|date',
         ];

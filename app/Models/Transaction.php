@@ -11,7 +11,7 @@ class Transaction extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['category_id', 'transaction_date', 'amount', 'description', 'user_id'];
+    protected $fillable = ['category_id', 'transaction_date', 'amount', 'amount2', 'description', 'user_id'];
 
     protected $dates = ['transaction_date'];
 
@@ -22,7 +22,12 @@ class Transaction extends Model
 
     public function setAmountAttribute($value)
     {
-        $this->attributes['amount'] = $value * 100;
+        $this->attributes['amount'] = $value;
+    }
+
+    public function setAmoun2tAttribute($value)
+    {
+        $this->attributes['amount2'] = $value;
     }
 
     public function setTransactionDateAttribute($value)
